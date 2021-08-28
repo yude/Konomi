@@ -1,3 +1,9 @@
+# Install arib-subtitle-timedmetadater
+FROM node:buster
+RUN mkdir -p /app/server/thirdparty/arib-subtitle-timedmetadater
+RUN npm install -g arib-subtitle-timedmetadater
+RUN ln -s /usr/local/bin/arib-subtitle-timedmetadater /app/server/thirdparty/arib-subtitle-timedmetadater/arib-subtitle-timedmetadater.elf
+
 FROM python:latest
 ADD ./ /app
 WORKDIR /app/server
