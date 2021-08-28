@@ -1,10 +1,13 @@
 version: '3'
 services:
     konomi:
-        restart: always
-        container_name: konomi
-        build: .
-        volumes:
-          - "./config.yaml:/app/config.yaml"
-        ports:
-          - "7000:7000"
+      restart: always
+      container_name: konomi
+      build:
+        context: .
+        # dockerfile: FFmpeg.Dockerfile
+        dockerfile: NVEnc.Dockerfile
+      volumes:
+        - "./config.yaml:/app/config.yaml"
+      ports:
+        - "7000:7000"
